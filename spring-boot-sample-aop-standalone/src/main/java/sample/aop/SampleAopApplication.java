@@ -16,6 +16,7 @@
 
 package sample.aop;
 
+import sample.aop.monitor.IRun;
 import sample.aop.service.HelloWorldService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,12 @@ public class SampleAopApplication implements CommandLineRunner {
 	@Autowired
 	private HelloWorldService helloWorldService;
 
+	@Autowired
+	private IRun iRun;
 	
 	public void run(String... args) {
-		System.out.println(this.helloWorldService.getHelloMessage());
+
+		iRun.run();
 	}
 
 	public static void main(String[] args) throws Exception {
